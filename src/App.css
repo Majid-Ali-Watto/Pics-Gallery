@@ -1,0 +1,71 @@
+/** @format */
+
+body {
+	margin: 0%;
+	padding: 0%;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	scroll-behavior: smooth;
+	font-family: "Merriweather", serif;
+}
+body::-webkit-scrollbar {
+	display: none;
+}
+.container {
+	height: 100%;
+	width: 100%;
+}
+.logo {
+	height: 50vh;
+	width: 50vw;
+	padding: 1em;
+	margin: 1px 10px;
+}
+
+.card {
+	padding: 2em;
+	margin-top: 5%;
+	z-index: -10;
+	height: fit-content;
+	background-color: azure;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	border: 1px dotted darkturquoise;
+}
+.buttonDiv {
+	display: flex;
+	justify-content: center;
+	background: turquoise;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 15px 0;
+	width: 100%;
+}
+.comment-card {
+	padding: 10px;
+	display: none;
+	position: fixed;
+	z-index: 10;
+	margin: 0 auto;
+	width: 30%;
+	height: 80%;
+	overflow: auto;
+	background-color: #ffffff;
+	font-family: "Poppins";
+	box-sizing: border-box;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: 3px 3px 2px rgb(214, 239, 230), -3px -3px 2px rgb(214, 239, 230);
+}
+
+.app-bar {
+	position: fixed;
+
+	width: 100%;
+}
