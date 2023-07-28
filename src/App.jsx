@@ -7,7 +7,6 @@ import CustomAppBar from "./components/CustomAppBar";
 const PostCard = lazy(() => import("./components/post-card"));
 
 function App() {
-	// const linksRef = useRef([]);
 	const limit = 10;
 	const [links, setLinks] = useState([]);
 	const [offset, setOffset] = useState(0);
