@@ -2,67 +2,29 @@
 
 import "../App.css";
 import { useState } from "react";
-import { AiOutlineClose, AiOutlineSend } from "react-icons/ai";
-import { Close } from "@mui/icons-material";
-import TextField from "@mui/material/TextField";
-import { Alert, Avatar, Button, Rating } from "@mui/material";
+
+import { Avatar, Rating } from "@mui/material";
+import CommentBox from "./Comment-Box";
 function PostCard(props) {
+	console.log("🚀 ~ file: post-card.jsx:9 ~ PostCard ~ props:", props);
 	// eslint-disable-next-line react/prop-types
 	const links = [...props.link];
 	const [disp, setDisp] = useState("none");
 	const [value, setValue] = useState(2);
-	const [comment, setComment] = useState("");
-	const [open, setOpen] = useState(false);
 
+	/**
+	 * The CommentCard function sets the display property to "flex", logs the result of 2 + 3 to the
+	 * console, and sets the overflow property of the document body to "hidden".
+	 */
 	const CommentCard = () => {
 		setDisp("flex");
+		console.log(2 + 3);
+		document.body.style.overflow = "hidden";
 	};
 	return (
-		<div className="container">
-			<div style={{ display: "flex", justifyContent: "center", position: "relative", top: 100 }} className="container">
-				<div style={{ display: disp }} className="comment-card">
-					<AiOutlineClose
-						onClick={() => setDisp("none")}
-						style={{
-							width: "100px",
-							height: "50px",
-							position: "absolute",
-							top: "0",
-							right: "0",
-						}}
-					/>
-					<TextField
-						id="standard-multiline-static"
-						label="Comment"
-						multiline
-						rows={15}
-						fullWidth
-						required
-						defaultValue={comment}
-						variant="filled"
-						onChange={(event) => {
-							setComment(event.target.value);
-							setOpen(false);
-						}}
-					/>
-					<br />
-					<Button
-						onClick={() => {
-							console.log(comment);
-							if (comment.length <= 0) setOpen(true);
-						}}
-						variant="contained"
-						endIcon={<AiOutlineSend />}
-					>
-						Send
-					</Button>
-					{open && (
-						<>
-							<Alert severity="warning">Please write some comment or close modal!</Alert>
-							<Close onClick={() => setOpen(false)} />
-						</>
-					)}
-				</div>
+		<div className="posts-container">
+			<div style={{ display: "flex", justifyContent: "center", position: "relative", top: 100 }}>
+				{disp && <CommentBox disp={disp} setDisp={setDisp} />}
 			</div>
 
 			<div className="card">
@@ -72,7 +34,7 @@ function PostCard(props) {
 							key={index}
 							style={{
 								display: "flex",
-								"flex-direction": "column",
+								flexDirection: "column",
 								justifyContent: "center",
 								border: "1px dotted darkturquoise",
 								marginBottom: "10px",

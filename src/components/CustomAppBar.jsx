@@ -4,6 +4,7 @@ import { Message, Notifications } from "@mui/icons-material";
 import { Search } from "@mui/icons-material";
 import { Badge, IconButton, Paper, InputBase, Avatar } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 const ColorButton = styled(IconButton)(() => ({
 	color: "white",
 	// "&:hover": {
@@ -18,6 +19,7 @@ const BadgeButton = styled(Badge)(() => ({
 	// },
 }));
 function CustomAppBar() {
+	const navigate = useNavigate();
 	return (
 		<div
 			style={{
@@ -73,7 +75,7 @@ function CustomAppBar() {
 				{/* <ColorButton size="large" color="inherit" edge="start" sx={{ mr: 2 }}>
 					<Message />
 				</ColorButton> */}
-				<BadgeButton badgeContent={4} color="warning" size="large" edge="start" sx={{ mr: 2 }}>
+				<BadgeButton badgeContent={4} color="warning" size="large" edge="start" sx={{ mr: 2 }} onClick={() => navigate("/chat")}>
 					<Message fontSize="large" />
 				</BadgeButton>
 				<BadgeButton badgeContent={4} color="warning" size="large" edge="start" sx={{ mr: 2 }}>
